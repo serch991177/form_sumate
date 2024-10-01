@@ -96,21 +96,21 @@
                             <div class="card-body">
                                 <div class="author">
                                     <a href="#">
-                                        <img class="avatar border-gray" src="{{ asset('light-bootstrap/img/faces/face-3.jpg') }}" alt="...">
-                                        <h5 class="title">{{ __('Mike Andrew') }}</h5>
+                                        <img class="avatar border-gray" src="{{ asset('light-bootstrap/img/faces/face-1.jpg') }}" alt="...">
+                                        <h5 class="title">{{ auth()->user()->name }}</h5>
                                     </a>
                                     <p class="description">
-                                        {{ __('michael24') }}
+                                        <!--{{ __('michael24') }}-->
                                     </p>
                                 </div>
                                 <p class="description text-center">
-                                {{ __(' "Lamborghini Mercy') }}
+                                    <!--{{ __(' "Lamborghini Mercy') }}
                                     <br> {{ __('Your chick she so thirsty') }}
-                                    <br> {{ __('I am in that two seat Lambo') }}
+                                    <br> {{ __('I am in that two seat Lambo') }}-->
                                 </p>
                             </div>
                             <hr>
-                            <div class="button-container mr-auto ml-auto">
+                            <div class="button-container mr-auto ml-auto" style="display:none">
                                 <button href="#" class="btn btn-simple btn-link btn-icon">
                                     <i class="fa fa-facebook-square"></i>
                                 </button>

@@ -7,7 +7,7 @@
                 @csrf
                 <div class="card">
                     <div class="card-header card-header-info">
-                        <h1 class="card-title text-center">FORMULARIO SUMATE</h1>
+                        <img src="{{ asset('light-bootstrap/img/banner-1.jpg') }}" width="1000px" height="200px" alt="banner sumate">
                         <h4 class="card-title text-center"><span class="text-danger">(*)</span> Campos Obligatorios</h4>
                     </div>
                     <div class="card-body">
@@ -20,7 +20,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for=""><span class="text-danger">(*)</span> Nombre :</label>
+                                <label for=""><span class="text-danger">(*)</span> Nombre Completo:</label>
                                 <input type="text" name="nombre" id="nombre" class="form-control" style="text-transform: uppercase;" value="{{old('nombre')}}" >
                                 @error('nombre')
                                     <p class='text-danger inputerror'>{{ $message }} </p>
@@ -53,7 +53,19 @@
                             </div>
                             <div class="col-md-6">
                                 <label for=""><span class="text-danger">(*)</span> Ciudad</label>
-                                <input type="text" name="ciudad" id="ciudad" class="form-control" style="text-transform: uppercase;" value="{{old('ciudad')}}" >
+                                <select name="ciudad" id="ciudad" class="form-control" value="{{old('ciudad')}}">
+                                    <option value="">Seleccione una opcion</option>
+                                    <option value="SANTA CRUZ">SANTA CRUZ</option>
+                                    <option value="COCHABAMBA">COCHABAMBA</option>
+                                    <option value="LA PAZ">LA PAZ</option>
+                                    <option value="BENI">BENI</option>
+                                    <option value="PANDO">PANDO</option>
+                                    <option value="ORURO">ORURO</option>
+                                    <option value="POTOSI">POTOSI</option>
+                                    <option value="TARIJA">TARIJA</option>
+                                    <option value="EL ALTO">EL ALTO</option>
+                                    <option value="CHUQUISACA">CHUQUISACA</option>
+                                </select>
                                 @error('ciudad')
                                     <p class='text-danger inputerror'>{{ $message }} </p>
                                 @enderror
@@ -61,14 +73,31 @@
                         </div>
                         <br>
                         <div class="text-center">
-                            <input type="submit" value="Guardar Registro" class="btn btn-info">
+                            <button type="submit" class="btn btn-lila-outline btn-oval">Guardar Registro</button>
                         </div>
                     </div>    
-                    
                 </div>
             </form>
         </div>
     </div>
+    <style>
+        .btn-lila-outline {
+            color: #6c1b74;
+            background-color: transparent;
+            border: 2px solid #6c1b74; /* Color lila */
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .btn-lila-outline:hover {
+            background-color: #6c1b74; /* Color lila al pasar el ratón (hover) */
+            color: #fff; /* Cambia el color del texto al pasar el ratón (hover) */
+        }
+        .btn-oval {
+            border-radius: 50px; 
+        }
+    </style>
 @endsection
 
 @push('js')

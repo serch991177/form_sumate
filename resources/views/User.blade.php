@@ -1,37 +1,45 @@
-@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Sistema de Sumate', 'navName' => 'Lista de Personas', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'user', 'title' => 'Sistema de Sumate', 'navName' => 'Creacion de Usuarios', 'activeButton' => 'laravel'])
 
 @section('content')
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
-                            <div class="card-body">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-end me-3 my-3">
+                                <form action="" >   
+                                    <a href="{{route('formulario-registro')}}" class="btn btn-md text-black" title="Crear Nuevo Usuario"><i class="nc-icon nc-tap-01"></i></a>
+                                </form>    
+                            </div>
                             <div class="table-responsive">
                                 <!-- date table-->
                                 <table id="example" class="dt-responsive table-bordered data-table dataTable no-footer dtr-inline collapsed" role="grid" >
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>CI</th>
+                                            <th>Correo</th>
                                             <th>Nombre</th>
-                                            <th>Género</th>
-                                            <th>Edad</th>
-                                            <th>Teléfono</th>
-                                            <th>Ciudad</th>
+                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($registro as $registros)                                                                                                  
                                             <tr>
                                                 <td>{{$registros->id}}</td>
-                                                <td>{{$registros->ci}}</td>
-                                                <td>{{$registros->nombre}}</td>
-                                                <td>{{$registros->genero}}</td>
-                                                <td>{{$registros->edad}}</td>
-                                                <td>{{$registros->telefono}}</td>
-                                                <td>{{$registros->ciudad}}</td>
+                                                <td>{{$registros->email}}</td>
+                                                <td>{{$registros->name}}</td>
+                                                <td>
+                                                    <div class="form-group text-center">
+                                                        <form action="{{route('editar_funcionario')}}" method="post" >
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{$registros->id}}">
+                                                            <button class="btn btn-warning" title="Ver / Editar"><i class="fa fa-file-text-o"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

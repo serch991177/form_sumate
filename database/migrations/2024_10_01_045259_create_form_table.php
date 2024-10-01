@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('edad');
             $table->text('telefono');
             $table->text('ciudad');
+            $table->text('id_user');
             $table->timestamps();
         });
     }
