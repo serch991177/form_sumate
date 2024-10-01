@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@cochabamba.com',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),
-            'administrador' => 'true',
-            'generador' => 'true',
+            'administrador' => 1,
+            'generador' => 1,
             'estado'=>'ACTIVO',
             'created_at' => now(),
             'updated_at' => now()
