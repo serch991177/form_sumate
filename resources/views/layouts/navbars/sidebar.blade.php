@@ -19,7 +19,7 @@
                     </a>
                 </li>
 
-                @if(auth()->user()->administrador == "true")
+                @if(auth()->user()->administrador == "1")
                     <li class="nav-item @if($activePage == 'user') active @endif">
                         <a class="nav-link" href="{{route('createuser')}}">
                             <i class="nc-icon nc-single-02"></i>

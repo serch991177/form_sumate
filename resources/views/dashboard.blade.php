@@ -2,6 +2,8 @@
 
 @section('content')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -78,12 +80,31 @@
 @push('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script> <!-- FontAwesome -->
 <script>
-    $('#example').DataTable( {
-        responsive: true,
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
-        },
-    } );
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            responsive: true,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+            },
+            dom: 'Bfrtip', // Activa los botones
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fas fa-file-excel"></i> Exportar a Excel', // Agrega el icono
+                    titleAttr: 'Exportar a Excel',
+                    title: 'Lista de Personas',
+                    className: 'btn btn-success', // Clase para el estilo verde
+                    exportOptions: {
+                        columns: ':visible' // Exporta solo columnas visibles
+                    }
+                }
+            ]
+        } );
+    });
 </script>
 @endpush

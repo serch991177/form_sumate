@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <input type="hidden" value="true" name="generador" id="generador">
+                        <input type="hidden" value="1" name="generador" id="generador">
                         <br>
                         <div class="text-center">
                             <button type="submit" class="btn btn-lila-outline btn-oval">Guardar Registro</button>

@@ -24,7 +24,7 @@ class FormController extends Controller
         ]);
         $registro = new Form;
         $registro->ci = $request->input('ci');
-        $registro->nombre = $request->input('nombre');
+        $registro->nombre = strtoupper($request->input('nombre'));
         $registro->genero = $request->input('genero');
         $registro->edad = $request->input('edad');
         $registro->telefono = $request->input('telefono');
